@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import os
+from send_sms import send_message
 
 app = Flask(__name__)
 
@@ -20,18 +21,7 @@ def send_message():
     phone = request.form.get("phone")
     message = request.form.get("message")
 
-    from twilio.rest import Client
-
-    # put your own credentials here
-    account_sid = "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    auth_token = "your_auth_token"
-
-    client = Client(account_sid, auth_token)
-
-    client.messages.create(
-        to=phone,
-        from_="+12027513223",
-        body=message)
+    send_message(phone, message)
 
 
     return render_template("index.html")
