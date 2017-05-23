@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, flash
 import os
 from send_sms import send_message
 
@@ -15,16 +15,17 @@ def show_text_form():
 
 
 @app.route('/send', methods=["POST"])
-def send_message():
+def send_twilio_message():
     """Send user's message"""
 
     phone = request.form.get("phone")
-    message = request.form.get("message")
+    body = request.form.get("message")
 
-    send_message(phone, message)
+    status = send_message(phone, body)
 
+    flash("Message Status: " + status)
 
-    return render_template("index.html")
+    return redirect("/")
 
 
 if __name__ == "__main__":
