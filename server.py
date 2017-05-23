@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, flash
 import os
-from send_sms import send_message
+from helpers import send_message, add_msg_to_db
+from model import connect_to_db
 
 app = Flask(__name__)
 
@@ -19,16 +20,19 @@ def send_twilio_message():
     """Send user's message"""
 
     phone = request.form.get("phone")
-    body = request.form.get("message")
+    body = request.form.get("body")
 
-    status = send_message(phone, body)
+    message = send_message(phone, body)
 
-    flash("Message Status: " + status)
+    add_msg_to_db(message.sid, phone, body)
+
+    flash("You have successfully sent your message!")
 
     return redirect("/")
 
 
 if __name__ == "__main__":
 
+    connect_to_db(app)
     PORT = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=PORT)
