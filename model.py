@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 class Message(db.Model):
-    """Course model."""
+    """Course model"""
 
     __tablename__ = "messages"
 
@@ -11,12 +11,15 @@ class Message(db.Model):
     to = db.Column(db.String, nullable=False)
     body = db.Column(db.Text, nullable=False)
 
+
     def __repr__(self):
+        """Create repr for easier reading when debugging"""
+
         return "<To: %s, Body: %s>" % (self.to, self.body)
 
 
 def connect_to_db(app, db_uri='postgresql:///twilio_app'):
-    """Connect the database to Flask app."""
+    """Connect the database to Flask app"""
 
     app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     db.app = app

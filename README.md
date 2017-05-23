@@ -2,13 +2,14 @@ Twilio API App
 --------
 
 **Description**
+
 This app allows users to send a message to anyone from their computer.
 
 
 ### Technology Stack
 
-**Application:** Python, Flask, Jinja2, SQLAlchemy, PostgreSQL    
-**Front-End**: JavaScript, HTML/CSS, Bootstrap
+**Application:** Python, Flask, SQLAlchemy, PostgreSQL, Twilio API    
+**Front-End**: HTML/CSS
 
 
 ### How to run this app locally
@@ -27,9 +28,7 @@ Install the dependencies
 > pip install -r requirements.txt
 ```
 
-Create Twilio account to get authentication for API usage
-
-Create a secrets.sh file 
+Create Twilio account to get authentication for API usage. Then create a secrets.sh file inputting your credentials
 
 ```
 export TWILIO_ACCOUNT_SID="[input your sid here]"

@@ -6,6 +6,7 @@ account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 
 def add_msg_to_db(mid, to, body):
+    """Add message object to db"""
 
     message = Message(message_id=mid, to=to, body=body)
     db.session.add(message)
@@ -13,6 +14,7 @@ def add_msg_to_db(mid, to, body):
 
 
 def send_message(phone, body):
+    """Use Twlio's API library to send message"""
 
     client = Client(account_sid, auth_token)
 

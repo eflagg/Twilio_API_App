@@ -1,8 +1,18 @@
+body {
+    background-color: #b3fff0;
+}
+
 .text-form {
     width: 50%;
-    text-align: center
+    text-align: center;
+}
+
+#phone {
+    background-color: #f2f2f2;
 }
 
 #body {
     height: 200px;
+    background-color: #f2f2f2;
 }
+

@@ -17,7 +17,7 @@ def show_text_form():
 
 @app.route('/send', methods=["POST"])
 def send_twilio_message():
-    """Send user's message"""
+    """Send user's message, return homepage with success message"""
 
     phone = request.form.get("phone")
     body = request.form.get("body")
