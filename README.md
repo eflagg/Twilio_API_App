@@ -32,11 +32,11 @@ Create Twilio account to get authentication for API usage. Then create a secrets
 
 ```
 export TWILIO_ACCOUNT_SID="[input your sid here]"
-export TWILIO_AUTH_TOKEN="[input your auto token here]"
+export TWILIO_AUTH_TOKEN="[input your auth token here]"
 export TWILIO_PHONE_NUMBER="[input your twilio phone number here]"
 ```
 
-Run this line in your terminal
+Run this line in your terminal (You will need to re-run this every time)
 
 ```
 > source secrets.sh
